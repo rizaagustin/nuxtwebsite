@@ -40,9 +40,9 @@ export const actions = {
 
         //set promise
         return new Promise((resolve, reject) => {
-            //fetching Rest API "/api/admin/invoices" with method "GET"
+            //fetching Rest API "/api/customer/invoices" with method "GET"
             this.$axios
-                .get(`/api/admin/invoices?q=${search}&page=${state.page}`)
+                .get(`/api/customer/invoices?q=${search}&page=${state.page}`)
 
             //success
             .then((response) => {
@@ -59,9 +59,9 @@ export const actions = {
     getDetailInvoice({ commit }, payload) {
         //set promise
         return new Promise((resolve, reject) => {
-            //get to Rest API "/api/admin/invoices/:id" with method "GET"
+            //get to Rest API "/api/customer/invoices/:snap_token" with method "GET"
             this.$axios
-                .get(`/api/admin/invoices/${payload}`)
+                .get(`/api/customer/invoices/${payload}`)
 
             //success
             .then((response) => {

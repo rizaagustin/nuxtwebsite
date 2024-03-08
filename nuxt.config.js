@@ -26,7 +26,7 @@ export default {
             { src: "/js/coreui.bundle.min.js" },
             {
                 src: "https://app.sandbox.midtrans.com/snap/snap.js",
-                "data-client-key": "Mid-client-McnBKpXfMffCHaf3",
+                "data-client-key": "SB-Mid-client-q1NMKRZrEXZGyZKf",
             },
         ],
     },

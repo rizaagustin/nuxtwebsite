@@ -16,10 +16,12 @@
                     <input
                       type="text"
                       class="form-control"
+                      v-model="search"
+                      @keypress.enter="searchData"
                       placeholder="cari berdasarkan no. invoice"
                     />
                     <div class="input-group-append">
-                      <button class="btn btn-warning">
+                      <button @click="searchData" class="btn btn-warning">
                         <i class="fa fa-search"></i>
                         SEARCH
                       </button>
@@ -78,6 +80,15 @@
                     </b-button>
                   </template>
                 </b-table>
+                <!-- pagination -->
+                <b-pagination
+                  align="right"
+                  :value="invoices.current_page"
+                  :total-rows="invoices.total"
+                  :per-page="invoices.per_page"
+                  @change="changePage"
+                  aria-controls="my-table"
+                ></b-pagination>
               </div>
             </div>
           </div>
@@ -127,6 +138,9 @@ export default {
           tdClass: "text-center",
         },
       ],
+
+      //state search
+      search: "",
     };
   },
 
@@ -140,6 +154,27 @@ export default {
     //invoices
     invoices() {
       return this.$store.state.admin.invoice.invoices;
+    },
+  },
+
+  //method
+  methods: {
+    //method "searchData"
+    searchData() {
+      //commit to mutation "SET_PAGE"
+      this.$store.commit("admin/invoice/SET_PAGE", 1);
+
+      //dispatch on action "getInvoicesData"
+      this.$store.dispatch("admin/invoice/getInvoicesData", this.search);
+    },
+
+    //method "changePage"
+    changePage(page) {
+      //commit to mutation "SET_PAGE"
+      this.$store.commit("admin/invoice/SET_PAGE", page);
+
+      //dispatch on action "getInvoicesData"
+      this.$store.dispatch("admin/invoice/getInvoicesData", this.search);
     },
   },
 };
