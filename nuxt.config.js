@@ -45,7 +45,26 @@ export default {
     components: true,
 
     // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-    buildModules: [],
+    buildModules: [
+        "@nuxtjs/pwa", // <-- register PWA
+    ],
+
+    pwa: {
+        meta: {
+            title: "MI STORE - Distributor Xiaomi Indonesia Resmi",
+            author: "Xiaomi Indonesia",
+        },
+        manifest: {
+            name: "Xiaomi",
+            short_name: "xiaomi",
+            description: "Official Toko Online Penjualan Produk Xiaomi",
+            lang: "en",
+        },
+        icon: {
+            fileName: "images/logo.png",
+            sizes: [64, 120, 144, 152, 192, 384, 512],
+        },
+    },
 
     // Modules: https://go.nuxtjs.dev/config-modules
     modules: [
@@ -126,7 +145,8 @@ export default {
     // Axios module configuration: https://go.nuxtjs.dev/config-axios
     axios: {
         // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-        baseURL: "http://localhost:8000",
+        // baseURL: "http://localhost:8000",
+        baseURL: "http://rizaags.my.id:84/",
     },
 
     // Build Configuration: https://go.nuxtjs.dev/config-build

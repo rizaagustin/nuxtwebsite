@@ -52,11 +52,11 @@
                         >
                           <option value="">-- select category --</option>
                           <option
-                            v-for="category2 in categories"
-                            :key="category2.id"
-                            :value="category2.id"
+                            v-for="category in categories"
+                            :key="category.id"
+                            :value="category.id"
                           >
-                            {{ category2.name }}
+                            {{ category.name }}
                           </option>
                         </select>
                         <div v-if="validation.category_id" class="mt-2">
