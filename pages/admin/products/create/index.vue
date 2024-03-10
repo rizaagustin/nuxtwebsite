@@ -221,7 +221,7 @@ export default {
   computed: {
     //categories
     categories() {
-      return this.$store.state.admin.category.categories;
+      return this.$store.state.admin.category.list_categories;
     },
   },
 

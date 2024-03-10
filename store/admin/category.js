@@ -3,6 +3,9 @@ export const state = () => ({
     //categories
     categories: [],
 
+    //list categories
+    list_categories: [],
+
     //page
     page: 1,
 });
@@ -13,6 +16,13 @@ export const mutations = {
     SET_CATEGORIES_DATA(state, payload) {
         //set value state "categories"
         state.categories = payload;
+    },
+
+    //penambahan mutation karena ada bug sehabis ke form create product lalu ke menu category ada error 500
+    //mutation "SET_CATEGORIES_DATA"
+    SET_LIST_CATEGORIES_DATA(state, payload) {
+        //set value state "categories"
+        state.list_categories = payload;
     },
 
     //mutation "SET_PAGE"
@@ -149,12 +159,11 @@ export const actions = {
             //success
             .then((response) => {
                 //commit ti mutation "SET_CATEGORIES_DATA"
-                commit("SET_CATEGORIES_DATA", response.data.data);
+                commit("SET_LIST_CATEGORIES_DATA", response.data.data);
 
                 //resolve promise
                 resolve();
             });
         });
     },
-    
 };
